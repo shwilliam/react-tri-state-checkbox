@@ -16,10 +16,12 @@
   },
   "keywords": [
     "react",
+    "component",
     "checkbox",
     "tri-state",
     "mixed-state",
-    "w3c"
+    "w3c",
+    "wai-aria"
   ],
   "author": "William L <w-lindvall@outlook.com>",
   "license": "MIT",
