@@ -2,7 +2,12 @@ import React, {useContext} from 'react'
 import PropTypes from 'prop-types'
 import {CheckboxContext} from './TriStateContext'
 
-const TriStateCheckbox = ({render, children, ...props}) => {
+const TriStateCheckbox = ({
+  render,
+  className,
+  children,
+  ...props
+}) => {
   const {
     activeChildren,
     setActiveChildren,
@@ -36,6 +41,7 @@ const TriStateCheckbox = ({render, children, ...props}) => {
           'aria-controls': controls.join(' '),
           onClick: handleToggle,
           onKeyDown: e => e.keyCode === 32 && handleToggle(),
+          className,
           ...props,
         })
       ) : (
@@ -46,6 +52,11 @@ const TriStateCheckbox = ({render, children, ...props}) => {
           tabIndex="0"
           onClick={handleToggle}
           onKeyDown={e => e.keyCode === 32 && handleToggle()}
+          className={
+            className
+              ? `${className} tri-state-checkbox`
+              : 'tri-state-checkbox'
+          }
           {...props}
         />
       )}
@@ -56,6 +67,7 @@ const TriStateCheckbox = ({render, children, ...props}) => {
 
 TriStateCheckbox.propTypes = {
   render: PropTypes.func,
+  className: PropTypes.string,
   children: PropTypes.oneOfType([
     PropTypes.arrayOf(PropTypes.node),
     PropTypes.node,

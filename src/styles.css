@@ -1,13 +1,13 @@
 /* https://www.w3.org/TR/wai-aria-practices-1.1/examples/checkbox/css/checkbox.css */
 
-[role='checkbox'] {
+.tri-state-checkbox {
   position: relative;
   padding-left: 1.4em;
   cursor: default;
 }
 
-[role='checkbox']::before,
-[role='checkbox']::after {
+.tri-state-checkbox::before,
+.tri-state-checkbox::after {
   position: absolute;
   top: 50%;
   left: 7px;
@@ -15,7 +15,7 @@
   content: '';
 }
 
-[role='checkbox']::before {
+.tri-state-checkbox::before {
   width: 14px;
   height: 14px;
   border: 1px solid hsl(0, 0%, 66%);
@@ -27,7 +27,7 @@
   );
 }
 
-[role='checkbox']:active::before {
+.tri-state-checkbox:active::before {
   background-image: linear-gradient(
     to bottom,
     hsl(300, 3%, 73%),
@@ -35,8 +35,8 @@
   );
 }
 
-[role='checkbox'][aria-checked='mixed']::before,
-[role='checkbox'][aria-checked='true']::before {
+.tri-state-checkbox[aria-checked='mixed']::before,
+.tri-state-checkbox[aria-checked='true']::before {
   border-color: hsl(216, 80%, 50%);
   background: hsl(217, 95%, 68%);
   background-image: linear-gradient(
@@ -46,7 +46,7 @@
   );
 }
 
-[role='checkbox'][aria-checked='mixed']::after {
+.tri-state-checkbox[aria-checked='mixed']::after {
   display: block;
   width: 8px;
   border-bottom: 0.125em solid #fff;
@@ -54,8 +54,8 @@
   transform-origin: center center;
 }
 
-[role='checkbox'][aria-checked='mixed']:active::after,
-[role='checkbox'][aria-checked='true']::after {
+.tri-state-checkbox[aria-checked='mixed']:active::after,
+.tri-state-checkbox[aria-checked='true']::after {
   display: block;
   width: 0.25em;
   height: 0.4em;
@@ -64,8 +64,8 @@
   transform: translateY(-65%) translateX(-50%) rotate(45deg);
 }
 
-[role='checkbox'][aria-checked='mixed']:active::before,
-[role='checkbox'][aria-checked='true']:active::before {
+.tri-state-checkbox[aria-checked='mixed']:active::before,
+.tri-state-checkbox[aria-checked='true']:active::before {
   background-image: linear-gradient(
     to bottom,
     hsl(216, 80%, 57%),
@@ -73,11 +73,11 @@
   );
 }
 
-[role='checkbox']:focus {
+.tri-state-checkbox:focus {
   outline: none;
 }
 
-[role='checkbox']:focus::before {
+.tri-state-checkbox:focus::before {
   width: 16px;
   height: 16px;
   box-sizing: content-box;
