@@ -3,8 +3,6 @@
 > A mixed-state checkbox for React based on the WAI-ARIA Authoring Practices's [tri-state checkbox](https://www.w3.org/TR/wai-aria-practices-1.1/#checkbox).
 > For more details see [this specification](https://www.w3.org/TR/wai-aria-practices-1.1/#checkbox).
 
-[![Try it on CodeSandbox](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/react-tri-state-checkbox-demo-8j7mo?fontsize=14)
-
 ## Installation
 
 ```shell
@@ -14,6 +12,48 @@ $ npm i react-tri-state-checkbox
 ---
 
 ## Usage
+
+The following example demonstrates how the `react-tri-state-checkbox` components work together in a typical scenario:
+
+```jsx
+import React from 'react'
+import {
+  Checkbox,
+  TriStateCheckbox,
+  TriStateContext,
+} from 'react-tri-state-checkbox'
+import 'react-tri-state-checkbox/dist/styles.css'
+
+const CondimentsSelect = () => (
+  <TriStateContext controls={['cond1', 'cond2', 'cond3']}>
+    <fieldset>
+      <legend>Sandwich Condiments</legend>
+
+      <label>
+        <TriStateCheckbox>All condiments</TriStateCheckbox>
+      </label>
+
+      <label>
+        {/* checked by default */}
+        <Checkbox id="cond1" checked />
+        Lettuce
+      </label>
+
+      <label>
+        <Checkbox id="cond2" />
+        Tomato
+      </label>
+
+      <label>
+        <Checkbox id="cond3" />
+        Mustard
+      </label>
+    </fieldset>
+  </TriStateContext>
+)
+```
+
+[![Try it on CodeSandbox](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/react-tri-state-checkbox-demo-8j7mo?fontsize=14)
 
 ### `<TriStateCheckbox />`
 
