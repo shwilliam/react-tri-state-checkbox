@@ -2,8 +2,13 @@
   "name": "react-tri-state-checkbox",
   "version": "0.1.0",
   "description": "Mixed-state checkbox for React",
-  "main": "lib/TriStateCheckbox.js",
-  "scripts": {},
+  "main": "dist/index.js",
+  "scripts": {
+    "prepublishOnly": "babel ./src --out-dir ./dist -s inline"
+  },
+  "files": [
+    "dist/*"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/shwilliam/react-tri-state-checkbox.git"
@@ -20,5 +25,18 @@
   "bugs": {
     "url": "https://github.com/shwilliam/react-tri-state-checkbox/issues"
   },
-  "homepage": "https://github.com/shwilliam/react-tri-state-checkbox#readme"
+  "homepage": "https://github.com/shwilliam/react-tri-state-checkbox#readme",
+  "dependencies": {},
+  "peerDependencies": {
+    "prop-types": "^15.7.2",
+    "react": "^16.9.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.5.5",
+    "@babel/core": "^7.5.5",
+    "@babel/preset-env": "^7.5.5",
+    "@babel/preset-react": "^7.0.0",
+    "prop-types": "^15.7.2",
+    "react": "^16.9.0"
+  }
 }
