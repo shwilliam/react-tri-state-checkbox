@@ -4,7 +4,6 @@
   "description": "Mixed-state checkbox for React",
   "main": "dist/index.js",
   "scripts": {
-    "demo": "parcel ./demo/index.html",
     "prepublishOnly": "babel ./src --out-dir ./dist -s inline --copy-files"
   },
   "files": [
@@ -41,9 +40,7 @@
     "@babel/preset-react": "^7.0.0",
     "eslint": "^6.1.0",
     "eslint-plugin-react": "^7.14.3",
-    "parcel-bundler": "^1.12.3",
     "prop-types": "^15.7.2",
-    "react": "^16.9.0",
-    "react-dom": "^16.9.0"
+    "react": "^16.9.0"
   }
 }
