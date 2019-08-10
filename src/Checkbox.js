@@ -2,7 +2,7 @@ import React, {useEffect, useContext} from 'react'
 import PropTypes from 'prop-types'
 import {CheckboxContext} from './TriStateContext'
 
-const Checkbox = ({id, checked = false, ...props}) => {
+const Checkbox = ({id, checked = false, render, ...props}) => {
   const {activeChildren, setActiveChildren, controls} = useContext(
     CheckboxContext,
   )
@@ -12,7 +12,7 @@ const Checkbox = ({id, checked = false, ...props}) => {
     const updatedActiveChildren = [...activeChildren]
     updatedActiveChildren[controls.indexOf(id)] = true
     setActiveChildren(updatedActiveChildren)
-  }, []) // eslint-disable-line
+  }, [])
 
   const handleChange = () => {
     const updatedActiveChildren = [...activeChildren]
@@ -22,7 +22,15 @@ const Checkbox = ({id, checked = false, ...props}) => {
     setActiveChildren(updatedActiveChildren)
   }
 
-  return (
+  return render ? (
+    render({
+      type: 'checkbox',
+      id: id,
+      checked: activeChildren[controls.indexOf(id)],
+      onChange: handleChange,
+      ...props,
+    })
+  ) : (
     <input
       type="checkbox"
       id={id}
@@ -36,6 +44,7 @@ const Checkbox = ({id, checked = false, ...props}) => {
 Checkbox.propTypes = {
   id: PropTypes.string.isRequired,
   checked: PropTypes.bool,
+  render: PropTypes.func,
 }
 
 export default Checkbox
