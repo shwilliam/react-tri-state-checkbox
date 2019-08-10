@@ -3,6 +3,8 @@
 > A mixed-state checkbox for React based on the WAI-ARIA Authoring Practices's [tri-state checkbox](https://www.w3.org/TR/wai-aria-practices-1.1/#checkbox).
 > For more details see [this specification](https://www.w3.org/TR/wai-aria-practices-1.1/#checkbox).
 
+[![Try it on CodeSandbox](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/react-tri-state-checkbox-demo-8j7mo?fontsize=14)
+
 ## Installation
 
 ```shell
