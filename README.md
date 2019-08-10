@@ -1,7 +1,66 @@
 # react-tri-state-checkbox
 
-> Mixed-state checkbox for React
+> A mixed-state checkbox for React based on the WAI-ARIA Authoring Practices's [tri-state checkbox](https://www.w3.org/TR/wai-aria-practices-1.1/#checkbox).
+> For more details see [this specification](https://www.w3.org/TR/wai-aria-practices-1.1/#checkbox).
 
-## Demo
+## Installation
 
-To run the demo, navigate to the `demo` directory and install the dependencies by running `npm i`. You can now start the app locally by running `npm start` in the same directory, and opening up the URL logged in your console, usually [localhost:1234](http://localhost:1234/).
+```shell
+$ npm i react-tri-state-checkbox
+```
+
+---
+
+## Usage
+
+### `<TriStateCheckbox />`
+
+The mixed-state checkbox component.
+
+#### Props
+
+| Name   | Type     | Required | Description                                                                                                                                                   |
+| ------ | -------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| render | Function | ❌       | A function used to render the mixed-state checkbox. The current state is passed as the prop `aria-checked`, which can be either `true`, `false` or `'mixed'`. |
+
+Please note that if you are **not** rendering your own checkbox for this component, you probably want to import the default styles for the mixed-state checkbox by importing the following stylesheet:
+
+```js
+import 'react-tri-state-checkbox/dist/styles.css'
+```
+
+### `<Checkbox />`
+
+A checkbox associated with the `<TriStateCheckbox />`.
+
+#### Props
+
+| Name    | Type     | Required | Description                                                                                        |
+| ------- | -------- | -------- | -------------------------------------------------------------------------------------------------- |
+| id      | string   | ✅       | A unique `id`. Also passed to `<TriStateContext />` in `controls` array.                           |
+| checked | boolean  | ❌       | The state of the checkbox.                                                                         |
+| render  | Function | ❌       | A function used to render the checkbox. The current state is passed as the boolean prop `checked`. |
+
+### `<TriStateContext />`
+
+A context wrapper that handles checkbox state changes. Must wrap `<TriStateCheckbox />` and `<Checkbox />`.
+
+#### Props
+
+| Name     | Type  | Required | Description                          |
+| -------- | ----- | -------- | ------------------------------------ |
+| controls | Array | ✅       | An array of controlled checkbox ids. |
+
+---
+
+## Contributing
+
+This project is open to and encourages contributions! Feel free to discuss any bug fixes/features in the [issues](https://github.com/shwilliam/react-tri-state-checkbox/issues). If you wish to work on this project:
+
+1. Fork [this project](https://github.com/shwilliam/react-tri-state-checkbox)
+2. Create a branch (`git checkout -b new-branch`)
+3. Commit your changes (`git commit -am 'add new feature'`)
+4. Push to the branch (`git push origin new-branch`)
+5. [Submit a pull request!](https://github.com/shwilliam/react-tri-state-checkbox/pull/new/master)
+
+<style>.bmc-button img{width: 27px !important;margin-bottom: 1px !important;box-shadow: none !important;border: none !important;vertical-align: middle !important;}.bmc-button{line-height: 36px !important;height:37px !important;text-decoration: none !important;display:inline-flex !important;color:#ffffff !important;background-color:#FF813F !important;border-radius: 3px !important;border: 1px solid transparent !important;padding: 0px 9px !important;font-size: 17px !important;letter-spacing:-0.08px !important;box-shadow: 0px 1px 2px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;margin: 0 auto !important;font-family:'Lato', sans-serif !important;-webkit-box-sizing: border-box !important;box-sizing: border-box !important;-o-transition: 0.3s all linear !important;-webkit-transition: 0.3s all linear !important;-moz-transition: 0.3s all linear !important;-ms-transition: 0.3s all linear !important;transition: 0.3s all linear !important;}.bmc-button:hover, .bmc-button:active, .bmc-button:focus {-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;text-decoration: none !important;box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;opacity: 0.85 !important;color:#ffffff !important;}</style><link href="https://fonts.googleapis.com/css?family=Lato&subset=latin,latin-ext" rel="stylesheet"><a class="bmc-button" target="_blank" href="${bmc}"><img src="https://bmc-cdn.nyc3.digitaloceanspaces.com/BMC-button-images/BMC-btn-logo.svg" alt="Buy me a coffee"><span style="margin-left:5px">Buy me a coffee</span></a>
