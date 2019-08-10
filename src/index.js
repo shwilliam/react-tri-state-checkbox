@@ -1,12 +1,6 @@
-import React from 'react'
-import PropTypes from 'prop-types'
+import TriStateCheckbox from './TriStateCheckbox'
+import TriStateContext from './TriStateContext'
+import Checkbox from './Checkbox'
 
-TriStateCheckbox.propTypes = {}
-
-TriStateCheckbox.defaultProps = {}
-
-function TriStateCheckbox({...props}) {
-  return <div>Hello world</div>
-}
-
+export {Checkbox, TriStateCheckbox, TriStateContext}
 export default TriStateCheckbox
