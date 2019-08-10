@@ -1,0 +1,24 @@
+{
+  "name": "react-tri-state-checkbox",
+  "version": "0.1.0",
+  "description": "Mixed-state checkbox for React",
+  "main": "lib/TriStateCheckbox.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shwilliam/react-tri-state-checkbox.git"
+  },
+  "keywords": [
+    "react",
+    "checkbox",
+    "tri-state",
+    "mixed-state",
+    "w3c"
+  ],
+  "author": "William L <w-lindvall@outlook.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/shwilliam/react-tri-state-checkbox/issues"
+  },
+  "homepage": "https://github.com/shwilliam/react-tri-state-checkbox#readme"
+}
