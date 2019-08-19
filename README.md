@@ -3,6 +3,12 @@
 > A mixed-state checkbox for React based on the WAI-ARIA Authoring Practices's [tri-state checkbox](https://www.w3.org/TR/wai-aria-practices-1.1/#checkbox).
 > For more details see [this specification](https://www.w3.org/TR/wai-aria-practices-1.1/#checkbox).
 
+![Tri-state checkbox usage gif](https://user-images.githubusercontent.com/38357771/63289330-b24e1500-c273-11e9-844b-7770fbec9d2a.gif)
+
+[![Try it on CodeSandbox](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/react-tri-state-checkbox-demo-8j7mo?fontsize=14)
+
+---
+
 ## Installation
 
 ```shell
@@ -53,7 +59,15 @@ const CondimentsSelect = () => (
 )
 ```
 
-[![Try it on CodeSandbox](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/react-tri-state-checkbox-demo-8j7mo?fontsize=14)
+### `<TriStateContext />`
+
+A context wrapper that handles checkbox state changes. Must wrap `<TriStateCheckbox />` and `<Checkbox />`.
+
+#### Props
+
+| Name     | Type  | Required | Description                          |
+| -------- | ----- | :------: | ------------------------------------ |
+| controls | Array |    ✅    | An array of controlled checkbox ids. |
 
 ### `<TriStateCheckbox />`
 
@@ -82,16 +96,6 @@ A checkbox associated with the `<TriStateCheckbox />`.
 | id      | string   |    ✅    | A unique `id`. Also passed to `<TriStateContext />` in `controls` array.                           |
 | checked | boolean  |    ❌    | The state of the checkbox.                                                                         |
 | render  | Function |    ❌    | A function used to render the checkbox. The current state is passed as the boolean prop `checked`. |
-
-### `<TriStateContext />`
-
-A context wrapper that handles checkbox state changes. Must wrap `<TriStateCheckbox />` and `<Checkbox />`.
-
-#### Props
-
-| Name     | Type  | Required | Description                          |
-| -------- | ----- | :------: | ------------------------------------ |
-| controls | Array |    ✅    | An array of controlled checkbox ids. |
 
 ---
 
