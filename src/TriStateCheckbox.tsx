@@ -54,7 +54,7 @@ const TriStateCheckbox: React.FC<TriStateCheckboxProps> = ({
           role="checkbox"
           aria-checked={activeState}
           aria-controls={controls.join(' ')}
-          tabIndex="0"
+          tabIndex={0}
           onClick={handleToggle}
           onKeyDown={e => e.keyCode === 32 && handleToggle()}
           className={
