@@ -48,7 +48,7 @@ const Checkbox: React.FC<Checkbox> = ({
 export interface Checkbox {
   id: string
   checked?: boolean
-  render?(any): any
+  render?(props: any): any
 }
 
 export default Checkbox

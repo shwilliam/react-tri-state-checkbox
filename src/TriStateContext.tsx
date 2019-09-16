@@ -45,9 +45,9 @@ export interface TriStateContext {
 
 export interface CheckboxContext {
   activeChildren: boolean[]
-  setActiveChildren(any): any
+  setActiveChildren(states: boolean[]): any
   activeState: any
-  setActiveState(any): any
+  setActiveState(state: boolean | string): any
   controls: string[]
 }
 

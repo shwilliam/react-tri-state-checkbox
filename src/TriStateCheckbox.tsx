@@ -39,7 +39,9 @@ const TriStateCheckbox: React.FC<TriStateCheckbox> = ({
           'aria-checked': activeState,
           'aria-controls': controls.join(' '),
           onClick: handleToggle,
-          onKeyDown: e => e.keyCode === 32 && handleToggle(),
+          onKeyDown(e: React.KeyboardEvent) {
+            e.keyCode === 32 && handleToggle()
+          },
           className,
           ...props,
         })
@@ -66,7 +68,7 @@ const TriStateCheckbox: React.FC<TriStateCheckbox> = ({
 }
 
 export interface TriStateCheckbox {
-  render?(any): any
+  render?(props: any): any
   className?: string
   children: JSX.Element[] | JSX.Element
 }
