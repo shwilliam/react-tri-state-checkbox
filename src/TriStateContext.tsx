@@ -1,18 +1,5 @@
 import React, {useEffect, useState} from 'react'
 
-export interface TriStateContext {
-  controls: string[]
-  children: JSX.Element[] | JSX.Element
-}
-
-export interface CheckboxContext {
-  activeChildren: boolean[]
-  setActiveChildren(any): any
-  activeState: any
-  setActiveState(any): any
-  controls: string[]
-}
-
 export const CheckboxContext = React.createContext(
   {} as CheckboxContext,
 )
@@ -49,6 +36,19 @@ const TriStateContext: React.FC<TriStateContext> = ({
       {children}
     </CheckboxContext.Provider>
   )
+}
+
+export interface TriStateContext {
+  controls: string[]
+  children: JSX.Element[] | JSX.Element
+}
+
+export interface CheckboxContext {
+  activeChildren: boolean[]
+  setActiveChildren(any): any
+  activeState: any
+  setActiveState(any): any
+  controls: string[]
 }
 
 export default TriStateContext

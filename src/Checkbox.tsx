@@ -1,13 +1,7 @@
 import React, {useEffect, useContext} from 'react'
 import {CheckboxContext} from './TriStateContext'
 
-export interface CheckboxProps {
-  id: string
-  checked?: boolean
-  render?(any): any
-}
-
-const Checkbox: React.FC<CheckboxProps> = ({
+const Checkbox: React.FC<Checkbox> = ({
   id,
   checked = false,
   render,
@@ -49,6 +43,12 @@ const Checkbox: React.FC<CheckboxProps> = ({
       {...props}
     />
   )
+}
+
+export interface Checkbox {
+  id: string
+  checked?: boolean
+  render?(any): any
 }
 
 export default Checkbox
