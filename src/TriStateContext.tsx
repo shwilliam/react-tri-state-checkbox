@@ -23,7 +23,7 @@ const TriStateContext: React.FC<TriStateContext> = ({
 }) => {
   const [activeState, setActiveState] = useState()
   const [activeChildren, setActiveChildren] = useState(
-    [...controls].fill(false),
+    controls.map(() => false),
   )
 
   useEffect(() => {
