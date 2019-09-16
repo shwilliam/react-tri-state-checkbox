@@ -31,7 +31,8 @@
   "homepage": "https://github.com/shwilliam/react-tri-state-checkbox#readme",
   "dependencies": {},
   "peerDependencies": {
-    "react": "^16.9.0"
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0"
   },
   "devDependencies": {
     "@types/react": "^16.9.2",
