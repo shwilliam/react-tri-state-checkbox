@@ -4,7 +4,8 @@
   "description": "Mixed-state checkbox for React",
   "main": "dist/index.js",
   "scripts": {
-    "prepublishOnly": "babel ./src --out-dir ./dist -s inline --copy-files"
+    "build": "tsc",
+    "prepublishOnly": "npm run build"
   },
   "files": [
     "dist/*"
@@ -34,13 +35,11 @@
     "react": "^16.9.0"
   },
   "devDependencies": {
-    "@babel/cli": "^7.5.5",
-    "@babel/core": "^7.5.5",
-    "@babel/preset-env": "^7.5.5",
-    "@babel/preset-react": "^7.0.0",
+    "@types/react": "^16.9.2",
     "eslint": "^6.1.0",
     "eslint-plugin-react": "^7.14.3",
     "prop-types": "^15.7.2",
-    "react": "^16.9.0"
+    "react": "^16.9.0",
+    "typescript": "^3.6.3"
   }
 }
