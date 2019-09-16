@@ -2,8 +2,6 @@
   "compilerOptions": {
     "target": "es5",
     "module": "commonjs",
-    "allowJs": true,
-    // TODO: enforce ts
     "jsx": "react",
     "lib": ["dom", "es2015"],
     "outDir": "dist",
@@ -11,8 +9,7 @@
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
     "moduleResolution": "node",
-    // not allowed w js compilation
-    // "declaration": true,
+    "declaration": true,
     "sourceMap": true,
     "removeComments": true,
     "strict": true,
