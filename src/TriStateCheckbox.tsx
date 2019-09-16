@@ -1,8 +1,7 @@
 import React, {useContext} from 'react'
-import PropTypes from 'prop-types'
 import {CheckboxContext} from './TriStateContext'
 
-const TriStateCheckbox = ({
+const TriStateCheckbox: React.FC<TriStateCheckbox> = ({
   render,
   className,
   children,
@@ -49,7 +48,7 @@ const TriStateCheckbox = ({
           role="checkbox"
           aria-checked={activeState}
           aria-controls={controls.join(' ')}
-          tabIndex="0"
+          tabIndex={0}
           onClick={handleToggle}
           onKeyDown={e => e.keyCode === 32 && handleToggle()}
           className={
@@ -66,13 +65,10 @@ const TriStateCheckbox = ({
   )
 }
 
-TriStateCheckbox.propTypes = {
-  render: PropTypes.func,
-  className: PropTypes.string,
-  children: PropTypes.oneOfType([
-    PropTypes.arrayOf(PropTypes.node),
-    PropTypes.node,
-  ]).isRequired,
+export interface TriStateCheckbox {
+  render?(any): any
+  className?: string
+  children: JSX.Element[] | JSX.Element
 }
 
 export default TriStateCheckbox

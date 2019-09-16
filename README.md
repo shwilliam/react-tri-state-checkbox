@@ -84,7 +84,7 @@ The mixed-state checkbox component.
 Please note that if you are **not** rendering your own checkbox for this component, you probably want to import the default styles for the mixed-state checkbox by importing the following stylesheet:
 
 ```js
-import 'react-tri-state-checkbox/dist/styles.css'
+import 'react-tri-state-checkbox/styles/checkbox.css'
 ```
 
 ### `<Checkbox />`

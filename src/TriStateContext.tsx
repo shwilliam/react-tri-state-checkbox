@@ -1,12 +1,16 @@
 import React, {useEffect, useState} from 'react'
-import PropTypes from 'prop-types'
 
-export const CheckboxContext = React.createContext()
+export const CheckboxContext = React.createContext(
+  {} as CheckboxContext,
+)
 
-const TriStateContext = ({controls, children}) => {
+const TriStateContext: React.FC<TriStateContext> = ({
+  controls,
+  children,
+}) => {
   const [activeState, setActiveState] = useState()
   const [activeChildren, setActiveChildren] = useState(
-    [...controls].fill(false),
+    controls.map(() => false),
   )
 
   useEffect(() => {
@@ -34,12 +38,17 @@ const TriStateContext = ({controls, children}) => {
   )
 }
 
-TriStateContext.propTypes = {
-  controls: PropTypes.arrayOf(PropTypes.string).isRequired,
-  children: PropTypes.oneOfType([
-    PropTypes.arrayOf(PropTypes.node),
-    PropTypes.node,
-  ]).isRequired,
+export interface TriStateContext {
+  controls: string[]
+  children: JSX.Element[] | JSX.Element
+}
+
+export interface CheckboxContext {
+  activeChildren: boolean[]
+  setActiveChildren(any): any
+  activeState: any
+  setActiveState(any): any
+  controls: string[]
 }
 
 export default TriStateContext
