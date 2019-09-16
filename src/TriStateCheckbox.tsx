@@ -1,8 +1,13 @@
 import React, {useContext} from 'react'
-import PropTypes from 'prop-types'
 import {CheckboxContext} from './TriStateContext'
 
-const TriStateCheckbox = ({
+export interface TriStateCheckboxProps {
+  render?(any): any
+  className?: string
+  children: JSX.Element[] | JSX.Element
+}
+
+const TriStateCheckbox: React.FC<TriStateCheckboxProps> = ({
   render,
   className,
   children,
@@ -64,15 +69,6 @@ const TriStateCheckbox = ({
       )}
     </label>
   )
-}
-
-TriStateCheckbox.propTypes = {
-  render: PropTypes.func,
-  className: PropTypes.string,
-  children: PropTypes.oneOfType([
-    PropTypes.arrayOf(PropTypes.node),
-    PropTypes.node,
-  ]).isRequired,
 }
 
 export default TriStateCheckbox
