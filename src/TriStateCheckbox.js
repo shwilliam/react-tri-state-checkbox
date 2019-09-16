@@ -58,9 +58,10 @@ const TriStateCheckbox = ({
               : 'tri-state-checkbox'
           }
           {...props}
-        />
+        >
+          {children}
+        </span>
       )}
-      {children}
     </label>
   )
 }
