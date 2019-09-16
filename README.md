@@ -35,9 +35,7 @@ const CondimentsSelect = () => (
     <fieldset>
       <legend>Sandwich Condiments</legend>
 
-      <label>
-        <TriStateCheckbox>All condiments</TriStateCheckbox>
-      </label>
+      <TriStateCheckbox>All condiments</TriStateCheckbox>
 
       <label>
         {/* checked by default */}
