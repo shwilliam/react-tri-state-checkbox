@@ -19,7 +19,7 @@ $ npm i react-tri-state-checkbox
 
 ## Usage
 
-The following example demonstrates how the `react-tri-state-checkbox` components work together in a typical scenario:
+The following example demonstrates how the `react-tri-state-checkbox` components work together in an accessible example:
 
 ```jsx
 import React from 'react'
@@ -32,10 +32,12 @@ import 'react-tri-state-checkbox/dist/styles.css'
 
 const CondimentsSelect = () => (
   <TriStateContext controls={['cond1', 'cond2', 'cond3']}>
-    <fieldset>
+    <fieldset role="group" aria-labelledby="all-condiments-input">
       <legend>Sandwich Condiments</legend>
 
-      <TriStateCheckbox>All condiments</TriStateCheckbox>
+      <TriStateCheckbox id="all-condiments-input">
+        All condiments
+      </TriStateCheckbox>
 
       <label>
         {/* checked by default */}
@@ -56,6 +58,8 @@ const CondimentsSelect = () => (
   </TriStateContext>
 )
 ```
+
+Note: For details about accessibility considerations please see [this](https://www.w3.org/TR/wai-aria-practices-1.1/#checkbox) document by the W3C detailing proper implementation.
 
 ### `<TriStateContext />`
 
