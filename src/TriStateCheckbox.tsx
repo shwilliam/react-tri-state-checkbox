@@ -2,6 +2,7 @@ import React, {useContext} from 'react'
 import {CheckboxContext} from './TriStateContext'
 
 const TriStateCheckbox: React.FC<TriStateCheckbox> = ({
+  id,
   render,
   className,
   children,
@@ -68,9 +69,10 @@ const TriStateCheckbox: React.FC<TriStateCheckbox> = ({
 }
 
 export interface TriStateCheckbox {
+  id: string
   render?(props: any): any
   className?: string
-  children: JSX.Element[] | JSX.Element
+  children: string | JSX.Element[] | JSX.Element
 }
 
 export default TriStateCheckbox
