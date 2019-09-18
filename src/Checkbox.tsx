@@ -18,7 +18,7 @@ const Checkbox: React.FC<Checkbox> = ({
     setActiveChildren(updatedActiveChildren)
   }, [])
 
-  const handleChange = () => {
+  const onChange = () => {
     const updatedActiveChildren = [...activeChildren]
     updatedActiveChildren[
       controls.indexOf(id)
@@ -31,7 +31,7 @@ const Checkbox: React.FC<Checkbox> = ({
       type: 'checkbox',
       id: id,
       checked: activeChildren[controls.indexOf(id)],
-      onChange: handleChange,
+      onChange,
       ...props,
     })
   ) : (
@@ -39,7 +39,7 @@ const Checkbox: React.FC<Checkbox> = ({
       type="checkbox"
       id={id}
       checked={activeChildren[controls.indexOf(id)]}
-      onChange={handleChange}
+      onChange={onChange}
       {...props}
     />
   )

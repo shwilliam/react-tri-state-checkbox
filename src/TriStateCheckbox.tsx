@@ -15,7 +15,7 @@ const TriStateCheckbox: React.FC<TriStateCheckbox> = ({
     controls,
   } = useContext(CheckboxContext)
 
-  const handleToggle = () => {
+  const onToggle = () => {
     switch (activeState) {
       case false:
         setActiveChildren(activeChildren.fill(true))
@@ -33,14 +33,14 @@ const TriStateCheckbox: React.FC<TriStateCheckbox> = ({
   }
 
   return (
-    <label onClick={handleToggle}>
+    <label onClick={onToggle}>
       {render ? (
         render({
           'aria-checked': activeState,
           'aria-controls': controls.join(' '),
-          onClick: handleToggle,
+          onClick: onToggle,
           onKeyDown(e: React.KeyboardEvent) {
-            e.keyCode === 32 && handleToggle()
+            e.keyCode === 32 && onToggle()
           },
           className,
           ...props,
@@ -51,8 +51,8 @@ const TriStateCheckbox: React.FC<TriStateCheckbox> = ({
           aria-checked={activeState}
           aria-controls={controls.join(' ')}
           tabIndex={0}
-          onClick={handleToggle}
-          onKeyDown={e => e.keyCode === 32 && handleToggle()}
+          onClick={onToggle}
+          onKeyDown={e => e.keyCode === 32 && onToggle()}
           className={
             className
               ? `${className} tri-state-checkbox`
