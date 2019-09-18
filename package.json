@@ -8,7 +8,8 @@
     "prepublishOnly": "npm run build"
   },
   "files": [
-    "dist/*"
+    "dist/*",
+    "styles/*"
   ],
   "repository": {
     "type": "git",
