@@ -1,7 +1,17 @@
-import React, {useContext} from 'react'
+import React, {useCallback, useContext} from 'react'
 import {CheckboxContext} from './TriStateContext'
 
-const TriStateCheckbox: React.FC<TriStateCheckbox> = ({
+const fillTrue = (arr: boolean[]): boolean[] => arr.fill(true)
+const fillFalse = (arr: boolean[]): boolean[] => arr.fill(false)
+
+export interface IProps {
+  id: string;
+  render?: (props: any) => any;
+  className?: string;
+  children: string | JSX.Element[] | JSX.Element;
+}
+
+const TriStateCheckbox: React.FC<IProps> = ({
   id,
   render,
   className,
@@ -9,29 +19,28 @@ const TriStateCheckbox: React.FC<TriStateCheckbox> = ({
   ...props
 }) => {
   const {
-    activeChildren,
     setActiveChildren,
     activeState,
     setActiveState,
     controls,
   } = useContext(CheckboxContext)
 
-  const onToggle = () => {
+  const onToggle = useCallback(() => {
     switch (activeState) {
       case false:
-        setActiveChildren(activeChildren.fill(true))
+        setActiveChildren(fillTrue)
         setActiveState(true)
         break
       case 'mixed':
-        setActiveChildren(activeChildren.fill(true))
+        setActiveChildren(fillTrue)
         setActiveState(true)
         break
       default:
-        setActiveChildren(activeChildren.fill(false))
+        setActiveChildren(fillFalse)
         setActiveState(false)
         break
     }
-  }
+  }, [activeState, setActiveChildren, setActiveState])
 
   return (
     <label onClick={onToggle}>
@@ -66,13 +75,6 @@ const TriStateCheckbox: React.FC<TriStateCheckbox> = ({
       )}
     </label>
   )
-}
-
-export interface TriStateCheckbox {
-  id: string
-  render?(props: any): any
-  className?: string
-  children: string | JSX.Element[] | JSX.Element
 }
 
 export default TriStateCheckbox

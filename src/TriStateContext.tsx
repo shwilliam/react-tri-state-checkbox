@@ -1,10 +1,32 @@
 import React, {useEffect, useState} from 'react'
 
-export const CheckboxContext = React.createContext(
-  {} as CheckboxContext,
-)
+type TStates = boolean[]
+type TSetActiveChildrenStateSetter = (stateSetter: (states: TStates) => TStates) => any
 
-const TriStateContext: React.FC<TriStateContext> = ({
+interface IProps {
+  controls: string[];
+  children: JSX.Element[] | JSX.Element;
+}
+
+interface ICheckboxContextInterface {
+  activeChildren: TStates;
+  setActiveChildren: TSetActiveChildrenStateSetter;
+  activeState?: any;
+  setActiveState: (state: boolean | string) => any;
+  controls: string[];
+}
+
+export const CheckboxContext = React.createContext<
+    ICheckboxContextInterface
+  >({
+    activeChildren: [],
+    // HACK: treats state setters as always defined
+    setActiveChildren: (s: any): any => s,
+    setActiveState: (s: any): any => s,
+    controls: [],
+  })
+
+const TriStateContext: React.FC<IProps> = ({
   controls,
   children,
 }) => {
@@ -36,19 +58,6 @@ const TriStateContext: React.FC<TriStateContext> = ({
       {children}
     </CheckboxContext.Provider>
   )
-}
-
-export interface TriStateContext {
-  controls: string[]
-  children: JSX.Element[] | JSX.Element
-}
-
-export interface CheckboxContext {
-  activeChildren: boolean[]
-  setActiveChildren(states: boolean[]): any
-  activeState: any
-  setActiveState(state: boolean | string): any
-  controls: string[]
 }
 
 export default TriStateContext

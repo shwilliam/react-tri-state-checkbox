@@ -1,7 +1,13 @@
 import React, {useEffect, useContext} from 'react'
 import {CheckboxContext} from './TriStateContext'
 
-const Checkbox: React.FC<Checkbox> = ({
+export interface IProps {
+  id: string;
+  checked: boolean;
+  render?: (props: any) => any;
+}
+
+const Checkbox: React.FC<IProps> = ({
   id,
   checked = false,
   render,
@@ -15,7 +21,8 @@ const Checkbox: React.FC<Checkbox> = ({
     if (checked !== true) return
     const updatedActiveChildren = [...activeChildren]
     updatedActiveChildren[controls.indexOf(id)] = true
-    setActiveChildren(updatedActiveChildren)
+    // FIXME: update type def to allow
+    setActiveChildren(() => updatedActiveChildren)
   }, [])
 
   const onChange = () => {
@@ -23,7 +30,7 @@ const Checkbox: React.FC<Checkbox> = ({
     updatedActiveChildren[
       controls.indexOf(id)
     ] = !updatedActiveChildren[controls.indexOf(id)]
-    setActiveChildren(updatedActiveChildren)
+    setActiveChildren(() => updatedActiveChildren)
   }
 
   return render ? (
@@ -43,12 +50,6 @@ const Checkbox: React.FC<Checkbox> = ({
       {...props}
     />
   )
-}
-
-export interface Checkbox {
-  id: string
-  checked?: boolean
-  render?(props: any): any
 }
 
 export default Checkbox
